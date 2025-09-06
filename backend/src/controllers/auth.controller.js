@@ -44,6 +44,7 @@ export const register = async (req,res)=>{
         })
 
         res.status(201).json({
+            success:true,
             message:"User created Successfully",
             user:{
                 id:newUser.id,
@@ -102,6 +103,7 @@ export const login = async(req,res)=>{
         })
 
         res.status(200).json({
+            success:true,
             message:"User logged in Successfully",
             user:{
                 id:user.id,
@@ -122,6 +124,40 @@ export const login = async(req,res)=>{
     }
 }
 
-export const logout = async(req,res)=>{}
+export const logout = async(req,res)=>{
+    try {
+        res.clearCookie("jwt",{
+            httpOnly:true,
+            sameSite:"strict",
+            secure:process.env.NODE_ENV !== "development",
+        })
 
-export const check = async(req,res) => {}
+        res.status(200).json({
+            success:true,
+            message:"User logged out Successfully"
+        })
+    } catch (error) {
+        console.error("Error Logging out",error);
+        res.status(500).json({
+            error:"Error logging out user"
+        })
+    }
+}
+
+export const check = async(req,res) => {
+
+    try {
+
+        res.status(200).json({
+            success:true,
+            message:"User authenticated successfully",
+            user:req.user
+        })
+        
+    } catch (error) {
+        console.error("Error checking user:",error);
+        res.status(500).json({
+            error:"Error checking user"
+        })
+    }
+}
