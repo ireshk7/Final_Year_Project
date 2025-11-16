@@ -49,13 +49,12 @@ export const authMiddleware = async (req , res , next)=>{
 }
 
 
-export const checkAdmin  = async(req , res , next)=>{
+export const checkAdmin = async(req,res,next)=>{
     try {
-        const userId = req.user.id;
-        
+        const userId =  req.user.id;
         const user = await db.user.findUnique({
             where:{
-                id:userId
+                id : userId
             },
             select:{
                 role:true
@@ -64,13 +63,15 @@ export const checkAdmin  = async(req , res , next)=>{
 
         if(!user || user.role !== "ADMIN"){
             return res.status(403).json({
-                message:"Access denied - Admins only"
+                message:"Acess denied - Admins only"
             })
-        }
 
-        next();
+            next();
+        }
     } catch (error) {
-        console.error("Error checking admin role:", error);
-        res.status(500).json({message:"Error checking admin role"});
+        console.error("Error checking admin role",error);
+        res.status(500).json({message:"Error checcking admin role"});
+
+       
     }
 }
