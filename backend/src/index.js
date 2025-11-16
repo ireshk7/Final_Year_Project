@@ -4,6 +4,9 @@ import cookieParser from "cookie-parser"
 
 
 import authRoutes from "./routes/auth.routes.js";
+import problemRoutes from "./routes/problem.routes.js";
+import executionRoute from "./routes/executeCode.route.js";
+
 
 
 
@@ -20,8 +23,15 @@ app.get("/", (req,res)=>{
 })
 
 app.use("/api/v1/auth",authRoutes);
+app.use("/api/v1/problems",problemRoutes)
+app.use("/api/v1/execute-code",executionRoute)
+
 
 app.listen(process.env.PORT,()=>{
     console.log("Server is running on port 8080");
 })
+
+console.log("RAPIDAPI_KEY:", !!process.env.JUDGE0_API_KEY);
+console.log("JUDGE0_API_URL:", process.env.JUDGE0_API_URL);
+console.log("JUDGE0_RAPIDAPI_HOST:", process.env.JUDGE0_API_HOST);
 
