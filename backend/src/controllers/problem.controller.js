@@ -386,7 +386,13 @@ const attemptJudge0 = async (submissions, opts = {}) => {
  *  - uses attemptJudge0() wrapper for robust submit+poll
  *  - returns richer failure details for failing testcases
  */
+
+
 export const createProblem = async (req, res) => {
+ // DEV ONLY — add at top of createProblem
+// console.log("🔥 createProblem called - headers:", req.headers);
+// console.log("🔥 createProblem body keys:", Object.keys(req.body || {}));
+
   const {
     title,
     description,
