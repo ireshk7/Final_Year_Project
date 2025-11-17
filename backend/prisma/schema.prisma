@@ -125,7 +125,7 @@ model TestCaseResult{
   stdout String?
   expected String
   stderr String?
-  comileOutout String?
+  compileOutput String?
   status String
   memory String?
   time String?
