@@ -14,6 +14,9 @@ import AdminRoute from './components/AdminRoute.jsx';
 import ProblemPage from './page/ProblemPage.jsx';
 import Profile from "./page/Profile.jsx"
 import ProblemsTable from './components/ProblemTable.jsx';
+import LandingPage from './page/LandingPage.jsx';
+import ContestArena from './page/ContestArena.jsx';
+import AllProblems from './page/AllProblems.jsx';
 
 const App = () => {
   const {authUser,checkAuth,isCheckingAuth} = useAuthStore()
@@ -42,6 +45,7 @@ const App = () => {
             element={authUser ? <HomePage /> : <Navigate to={"/login"} />}
           />
         </Route>
+        {/* <Route path="/" element={<LandingPage />} /> */}
 
         <Route
         path='/login'
@@ -70,11 +74,15 @@ const App = () => {
           element={authUser ? <Profile/> : <Navigate to="/login"/>}
         >
         </Route>
-        <Route
+        {/* <Route
           path='/problems'
           element={authUser ? <ProblemsTable/> : <Navigate to="/login"/>}
         >
-        </Route>
+        </Route> */}
+
+        <Route path="/contests" element={<ContestArena />} />
+
+        <Route path="/problems" element={<AllProblems />} />
 
       </Routes>
     
