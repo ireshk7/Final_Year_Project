@@ -17,7 +17,7 @@ const app = express();
 app.use(
   cors({
     origin:"http://localhost:5173",
-    origin:"https://final-year-project-five-gamma.vercel.app/",
+    origin:"https://final-year-project-five-gamma.vercel.app",
     credentials:true,
 }))
 
