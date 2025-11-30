@@ -14,12 +14,24 @@ dotenv.config();
 
 const app = express();
 
+// app.use(
+//   cors({
+//     origin:"http://localhost:5173",
+//     // origin:"https://final-year-project-five-gamma.vercel.app",
+//     credentials:true,
+// }))
+
+
 app.use(
   cors({
-    origin:"http://localhost:5173",
-    origin:"https://final-year-project-five-gamma.vercel.app",
-    credentials:true,
-}))
+    origin: ["http://localhost:5173", "https://final-year-project-five-gamma.vercel.app"],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    exposedHeaders: ["Set-Cookie"]
+  })
+);
+
 
 app.use(express.json());
 app.use(cookieParser())
