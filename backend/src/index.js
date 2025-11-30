@@ -24,7 +24,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://final-year-project-five-gamma.vercel.app"],
+    origin: ["http://localhost:5173", "https://final-year-project-five-gamma.vercel.app","https://www.code-flux.app/"],
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
