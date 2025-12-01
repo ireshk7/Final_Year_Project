@@ -328,18 +328,18 @@ const ProblemPage = () => {
               <div className="p-4 border-t border-base-300 bg-base-200">
                 <div className="flex justify-between items-center">
                   <button
-                    className={`btn btn-primary gap-2 ${
+                    className={`btn btn-success gap-2 ${
                       isExecuting ? "loading" : ""
                     }`}
                     onClick={handleRunCode}
                     disabled={isExecuting}
                   >
                     {!isExecuting && <Play className="w-4 h-4" />}
-                    Run Code
-                  </button>
-                  <button className="btn btn-success gap-2">
                     Submit Solution
                   </button>
+                  {/* <button className="btn btn-success gap-2">
+                    Submit Solution
+                  </button> */}
                 </div>
               </div>
             </div>
